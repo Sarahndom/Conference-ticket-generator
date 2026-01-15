@@ -1,0 +1,624 @@
+:root {
+    - Neutral-0: hsl(0, 0%, 100%);
+    - Neutral-300: hsl(252, 6%, 83%);
+    - Neutral-500: hsl(245, 15%, 58%);
+    - Neutral-700: hsl(245, 19%, 35%);
+    - Neutral-+900: hsl(248, 70%, 10%);
+
+    - Orange-500: hsl(7, 88%, 67%);
+    - Orange-700: hsl(7, 71%, 60%);
+
+    /* Gradient */
+    --gradient-text: linear-gradient(90deg,
+            hsl(7, 86%, 67%),
+            hsl(0, 0%, 100%));
+
+    --font-label: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inconsolata", monospace;
+    color: hsl(0, 0%, 100%);
+    min-height: 100vh;
+    font-size: var(--font-label);
+
+    padding: 1rem;
+
+    /*Order images: small patterns first (top), main background last (bottom) */
+    background-image:
+        /* Lines */
+        url('/assets/images/pattern-lines.svg'),
+        /* Top Squiggle */
+        url('/assets/images/pattern-squiggly-line-top.svg'),
+        /* Circle 1: Left Top  */
+        url('/assets/images/pattern-circle.svg'),
+        /* Circle 2: Center Left */
+        url('/assets/images/pattern-circle.svg'), url('/assets/images/pattern-squiggly-line-bottom-desktop.svg'),
+        /* This contains the purple glow */
+        url('/assets/images/background-desktop.png');
+
+    background-position:
+        /* Lines */
+        center top,
+        /* Top Squiggle */
+        top 10% right 10%,
+        /* circle 1 */
+        left top,
+        /* circle 2 */
+        bottom 25% right 30%,
+        /* Bottom Squiggle */
+        left bottom,
+        /* Main Glow */
+        center;
+
+    background-repeat: no-repeat;
+
+    /*Ensure the main background covers the whole screen */
+    background-size: auto, auto, auto, auto, auto, cover;
+}
+
+.logo-wrap {
+    text-align: center;
+    margin: 1.5rem;
+}
+
+/* FORM SECTION */
+.ticket-form {
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-form-content-wrap {
+    /* display: none; */
+    width: 50%;
+    height: 100%;
+}
+
+/* Header content */
+.form-header {
+    gap: 2rem;
+    text-align: center;
+    line-height: 3rem;
+}
+
+.form-title {
+    font-size: 45px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.form-description {
+    line-height: 1.5rem;
+}
+
+/* Avatar upload block */
+.form-section {
+    padding-top: 1rem;
+    width: 80%;
+    margin: auto;
+    font-size: 18px;
+}
+
+.avatar-label {
+    font-weight: 300;
+}
+
+/* Container for the upload area */
+.upload-box {
+    margin-top: 0.5rem;
+    background-color: hsl(245, 19%, 35%, 0.25);
+    border: 2px dashed hsl(245, 19%, 35%);
+    border-radius: 12px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    /* Makes color changes smooth when hovering */
+    transition: all 0.3s ease;
+    position: relative;
+
+    /* Shows the hand icon to tell users it is clickable */
+    cursor: pointer;
+    text-align: center;
+}
+
+.upload-box:hover {
+    background-color: hsla(245, 19%, 35%, 0.4);
+}
+
+/* The Square Icon Container */
+.icon-upload {
+    padding: 10px;
+    border-radius: 8px;
+
+    /* Makes the div only as wide as the icon inside */
+    display: inline-block;
+    background-color: hsla(245, 19%, 35%, 0.5);
+    border: 1px solid hsla(252, 6%, 83%, 0.2);
+}
+
+#icon-upload {
+    width: 25px;
+}
+
+#file {
+    position: absolute;
+
+    /* Stretches the input to cover the top, bottom, left, and right edges */
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* Makes the default browser "Choose File" button completely invisible */
+    opacity: 0;
+
+    /* Ensures the hand cursor shows even on the invisible element */
+    cursor: pointer;
+}
+
+.upload-instruction {
+    color: hsl(255, 10%, 84%);
+    /* Prevents the text from blocking clicks to the file input underneath */
+    pointer-events: none;
+    font-size: 18px;
+}
+
+.hint-err-section {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.upload-hint {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    font-weight: 200;
+    font-size: 10px;
+}
+
+.upload-hint img {
+    position: relative;
+    top: 5px;
+}
+
+
+.err-msg {
+    display: none;
+    color: hsl(7, 86%, 67%);
+    position: absolute;
+    top: 0;
+    font-weight: 200;
+    font-size: 10px;
+}
+
+.err-img {
+    position: relative;
+    top: 5px;
+    filter: invert(44%) sepia(93%) saturate(302%) hue-rotate(334deg) brightness(91%) contrast(100%);
+}
+
+
+.user-form {
+    margin-top: 1.5rem;
+}
+
+.form-input {
+    background-color: hsla(245, 19%, 35%, 0.4);
+    width: 95%;
+    color: hsl(0, 0%, 100%);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid hsl(245, 19%, 35%);
+}
+
+.form-input:hover {
+    background-color: hsla(245, 19%, 35%, 0.25);
+}
+
+.input-form {
+    background-color: hsla(245, 19%, 35%, 0.4);
+    width: 95%;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid hsl(245, 19%, 35%);
+}
+
+.input-form:hover {
+    background-color: hsla(245, 19%, 35%, 0.25);
+}
+
+/* RED BORDER */
+.user-form.submitted .input-form:invalid {
+    border-color: hsl(7, 71%, 60%);
+}
+
+/* ERROR TEXT */
+.user-form.submitted .input-form:invalid+.error-msg {
+    display: block;
+}
+
+.error-msg {
+    display: none;
+    color: hsl(7, 86%, 67%);
+    font-size: 10px;
+    margin-top: -6px;
+}
+
+.submit-btn {
+    background-color: hsl(7, 86%, 67%);
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+}
+
+.submit-btn:hover {
+    background-color: hsl(7, 71%, 60%);
+}
+
+
+/* Size in em 	Size in px	Device Target */
+/* 23.4375em (which is 375px / 16px) */
+/* 48em	768px	Tablets (Portrait) */
+/* 64em	1024px	Laptops / Small Desktops */
+/* 80em	1280px	Standard Large Desktops */
+/* 120em	1920px	Full HD Monitors */
+
+@media screen and (width <=48em) {
+
+    .ticket-form-content-wrap {
+        width: 80%;
+    }
+
+    /* Header content */
+    .form-header {
+        margin-top: 1rem;
+    }
+
+    .form-title {
+        font-size: clamp(18px, 4vw, 40px);
+        line-height: 1.5rem;
+    }
+
+    .form-description {
+        font-size: clamp(12px, 3vw, 18px);
+        line-height: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Avatar upload block */
+    .form-section {
+        width: 90%;
+    }
+
+    .avatar-label {
+        font-size: 14px;
+    }
+
+    /* Container for the upload area */
+    .upload-box {
+        margin-top: 0.2rem;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    /* The Square Icon Container */
+    .icon-upload {
+        height: 25px;
+    }
+
+    .upload-instruction {
+        font-size: 10px;
+    }
+
+    .upload-hint {
+        font-size: 8px;
+    }
+
+
+    .user-form {
+        margin-top: 1rem;
+    }
+
+    .form-label {
+        font-size: 16px;
+    }
+
+}
+
+
+
+
+
+
+/* TICKET-SECTION */
+
+.ticket-result {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 8em;
+}
+
+.result-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 1rem + 3vw, 2.5rem);
+}
+
+.user-name {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.result-description {
+    color: hsl(252, 6%, 83%);
+    line-height: 1.5rem;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    font-weight: 500;
+    margin: 2rem 0;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.user-email {
+    color: hsl(7, 71%, 60%);
+}
+
+.ticket-card {
+    position: relative;
+    top: 50px;
+    display: inline-block;
+    width: 100%;
+}
+
+.ticket-bg-section {
+    position: relative;
+    display: flex;
+    width: 90%;
+}
+
+.ticket-bg {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.bg-shadow {
+    border-radius: 30px;
+    width: 80%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: hsl(248, 70%, 10%);
+}
+
+.bg-shadow-1 {
+    position: absolute;
+    display: flex;
+
+    width: 20%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+
+    border-radius: 30px 10px 10px 30px;
+    background: radial-gradient(circle at center,
+            hsl(250, 60%, 20%) 0%,
+            hsl(248, 70%, 10%) 100%);
+}
+
+.bg-shadow-1 span {
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+    font-weight: 400;
+    color: hsl(245, 19%, 35%);
+    font-family: "Inconsolata", monospace;
+    transform: rotate(90deg);
+}
+
+.ticket-content {
+    width: 50%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    /* Pull the div back by half its own size */
+
+}
+
+.ticket-header {
+    display: flex;
+    gap: 1rem;
+}
+
+.ticket-logo {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+
+.event-details {
+    font-weight: 400;
+}
+
+.event-name {
+    font-weight: 800;
+    line-height: 2.5rem;
+}
+
+.event-date {
+    font-size: 16px;
+    color: hsl(252, 6%, 83%);
+}
+
+.ticket-user {
+    display: flex;
+    margin-top: auto;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 70px;
+    border-radius: 0.8rem;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+.user-fullname {
+    font-weight: 500;
+}
+
+.user-github {
+    display: flex;
+    margin-top: auto;
+    gap: 0.5rem;
+}
+
+.github-username {
+    font-weight: 500;
+    font-size: 16px;
+    color: hsl(252, 6%, 83%);
+}
+
+
+
+/* Size in em 	Size in px	Device Target */
+/* 23.4375em (which is 375px / 16px) */
+/* 48em	768px	Tablets (Portrait) */
+/* 64em	1024px	Laptops / Small Desktops */
+/* 80em	1280px	Standard Large Desktops */
+/* 120em	1920px	Full HD Monitors */
+
+@media screen and (width <=48em) {
+
+    body {
+        /* This keeps the images from scrolling with the content */
+        background-attachment: fixed;
+
+        /* Control the size of the patterns so they don't grow/shrink unpredictably */
+        background-size:
+            cover,
+            /* Lines stretch to fit */
+            200px,
+            /* Fixed width for top squiggle */
+            150px,
+            /* Fixed width for circle 1 */
+            150px,
+            /* Fixed width for circle 2 */
+            300px,
+            /* Fixed width for bottom squiggle */
+            cover;
+        /* Glow covers entire screen */
+
+
+        background-position:
+            /* Lines */
+            center top,
+            /* Top Squiggle */
+            top 2% right 10%,
+            /* circle 1 */
+            left top,
+            /* circle 2 */
+            bottom 25% right 30%,
+            /* Bottom Squiggle */
+            left bottom,
+            /* Main Glow */
+            center;
+    }
+
+    .ticket-result {
+        width: 90%;
+        padding: 5rem 0;
+    }
+
+    .ticket-bg-section {
+        margin: auto;
+    }
+
+    .ticket-bg {
+        border-radius: 5px;
+    }
+
+    .ticket-content {
+        height: 75%;
+        gap: 1rem;
+    }
+
+    .ticket-header {
+        gap: 0.8rem;
+    }
+
+    .ticket-logo {
+        margin-top: 0;
+    }
+
+    .event-details {
+        white-space: nowrap;
+    }
+
+    .event-name {
+        font-size: clamp(16px, 4vw, 30px);
+        font-weight: 700;
+        line-height: 1.5rem;
+    }
+
+    .event-date {
+        margin-top: 3px;
+        font-size: clamp(5px, 3vw, 16px);
+    }
+
+    .ticket-user {
+        gap: 0.8rem;
+    }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 0.5rem;
+    }
+
+    .user-details {
+        white-space: nowrap;
+        padding: 1px;
+    }
+}

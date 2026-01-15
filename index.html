@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="/index.css">
+
+  <script src="/index.js" defer></script>
+
+  <title>Conference ticket generator</title>
+
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="ticket-app">
+
+    <div class="logo-wrap">
+      <img src="/assets/images/logo-full.svg" class="logo-full" alt="">
+    </div>
+
+    <!-- Form starts -->
+
+    <section class="ticket-form">
+
+      <div class="ticket-form-content-wrap">
+
+        <!-- Header content -->
+
+        <header class="form-header">
+
+          <h1 class="form-title">Your Journey to Coding Conf 2025 Starts Here!</h1>
+
+          <p class="form-description">Secure your spot at next year's biggest coding conference.</p>
+
+        </header>
+
+        <!-- Avatar upload block -->
+
+        <div class="form-section">
+
+          <div class="avatar-upload">
+            <span class="avatar-label">Upload Avatar</span>
+
+            <div class="upload-box">
+              <div class="icon-upload">
+                <img src="./assets/images/icon-upload.svg" id="icon-upload">
+                <input type="file" id="file" name="file" multiple />
+              </div>
+
+              <span class="upload-instruction" for="file">
+                Drag and drop or click to upload
+              </span>
+
+            </div>
+
+            <div class="hint-err-section">
+              <p class="upload-hint"> <img src="./assets/images/icon-info.svg" alt=""> Upload your photo (JPG or PNG,
+                max
+                size: 500KB).</p>
+
+              <p class="err-msg"> <img src="./assets/images/icon-info.svg" class="err-img" alt=""> File too large.
+                Please upload a photo
+                under 500KB.</p>
+            </div>
+
+
+          </div>
+
+          <!-- User details form -->
+
+          <form class="user-form">
+
+            <div class="form-group">
+              <label for="fname" class="form-label">Full Name
+              </label><br>
+              <input type="text" id="fname" class="form-input" /><br>
+            </div>
+
+
+
+            <div class="form-group-error">
+              <label for="emailaddress" class="form-label">Email Address
+              </label><br>
+              <input type="email" id="emailaddress" class="input-form" placeholder="example@email.com" required /><br>
+
+              <p class="error-msg">
+                <img src="./assets/images/icon-info.svg" class="err-img" alt="">
+                Please enter a valid email address.</span>
+              </p>
+
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="Username" class="form-label">GitHub Username</label><br>
+              <input type="text" id="username" class="form-input" placeholder="@yourusername" required /><br>
+            </div>
+
+            <button type="submit" class="submit-btn">Generate My Ticket</button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Form ends -->
+
+
+
+
+    <!-- Generated tickets starts -->
+
+    <section class="ticket-result hidden">
+
+      <h1 class="result-title">
+        Congrats, <span class="user-name">Full Name ! </span> Your ticket is ready.
+      </h1>
+
+      <p class="result-description">
+        We've emailed your ticket to <br>
+        <span class="user-email">Example@gmail.com</span>
+        and will send updates in <br> the run up to the event.
+      </p>
+
+
+      <div class="ticket-card">
+
+        <!-- Ticket background pattern -->
+
+        <div class="ticket-bg-section">
+          <img src="/assets/images/pattern-ticket.svg" alt="" class="ticket-bg" />
+
+          <div class="bg-shadow"></div>
+          <div class="bg-shadow-1"> <span class="id">#01609</span></div>
+
+        </div>
+
+
+        <!-- Ticket content -->
+
+        <div class="ticket-content">
+
+          <!-- Logo + event info -->
+          <div class="ticket-header">
+
+            <img src="/assets/images/logo-mark.svg" alt="Coding Conf Logo" class="ticket-logo" />
+
+            <div class="event-details">
+              <h2 class="event-name">Coding Conf</h2>
+              <p class="event-date"> Jan 31, 2025 / Austin, TX
+              </p>
+
+            </div>
+
+          </div>
+
+          <!-- Attendee info -->
+          <div class="ticket-user">
+
+            <img src="/assets/images/image-avatar.jpg" alt="User avatar" class="user-avatar" />
+
+            <div class="user-details">
+              <p class="user-fullname">Sarah N</p>
+
+              <div class="user-github">
+                <img src="/assets/images/icon-github.svg" alt="" class="github-icon" />
+                <span class="github-username">@StarG</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <!-- Generated tickets ends -->
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Sarah Ndom</a>.
+    </div>
+
+  </main>
+
+</body>
+
+</html>
