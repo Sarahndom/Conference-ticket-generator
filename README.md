@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Solution Screenshot](![alt text](image.png))
+![Solution Screenshot]![alt text](image.png)
 
 ### Links
 
