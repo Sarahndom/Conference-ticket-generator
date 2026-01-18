@@ -75,11 +75,11 @@ body {
 
 
 .attribution {
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
+    display: flex;
     font-size: 11px;
-    text-align: center;
-    margin-bottom: 1rem;
+    justify-content: center;
+    padding-top: 1rem;
 }
 
 .attribution a {
@@ -399,7 +399,6 @@ body {
 
 .ticket-card {
     position: relative;
-    top: 50px;
     display: inline-block;
     width: 100%;
 }
@@ -407,7 +406,8 @@ body {
 .ticket-bg-section {
     position: relative;
     display: flex;
-    width: 90%;
+    width: 80%;
+    margin: auto;
 }
 
 .ticket-bg {
@@ -418,7 +418,7 @@ body {
 }
 
 .bg-shadow {
-    border-radius: 1rem;
+    border-radius: 1rem 3rem 2.5rem 1rem;
     width: 78%;
     position: absolute;
     z-index: -1;
@@ -429,12 +429,12 @@ body {
 }
 
 .bg-shadow-m {
-    width: 50px;
+    width: 100px;
     height: 85%;
 
     position: absolute;
-    right: 5rem;
-    bottom: 20px;
+    right: clamp(2rem, 12vw, 13rem);
+    bottom: 28px;
 
     z-index: -1;
 
@@ -446,14 +446,13 @@ body {
 .bg-shadow-1 {
     position: absolute;
     display: flex;
-
     width: 16%;
     right: 0;
-    top: 0;
+    top: 0px;
     bottom: 0;
     z-index: -1;
 
-    border-radius: 1rem;
+    border-radius: 2rem 1rem 1rem 2rem;
     background: radial-gradient(circle at center,
             hsl(250, 60%, 20%) 0%,
             hsl(248, 70%, 10%) 100%);
@@ -464,6 +463,7 @@ body {
     align-self: center;
     margin-left: auto;
     font-weight: 400;
+    font-size: 45px;
     color: hsl(245, 19%, 35%);
     font-family: "Inconsolata", monospace;
     transform: rotate(90deg);
@@ -471,14 +471,14 @@ body {
 
 .ticket-content {
     width: 50%;
-    height: 80%;
+    height: 60%;
 
     display: flex;
     flex-direction: column;
 
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 40%;
     transform: translate(-50%, -50%);
     /* Pull the div back by half its own size */
 
@@ -517,7 +517,8 @@ body {
 }
 
 .user-avatar {
-    width: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 0.8rem;
 }
 
@@ -575,7 +576,6 @@ body {
             cover;
         /* Glow covers entire screen */
 
-
         background-position:
             /* Lines */
             center top,
@@ -605,13 +605,17 @@ body {
     }
 
     .bg-shadow-m {
-        bottom: 15px;
-        right: clamp(20px, 15%, 100px);
+        bottom: 11px;
+        right: clamp(20px, 15%, 80px);
+    }
+
+    .bg-shadow-1 span {
+        font-size: 18px;
     }
 
     .ticket-content {
-        height: 75%;
-        gap: 1rem;
+        height: 70%;
+        gap: 0.5rem;
     }
 
     .ticket-header {
@@ -629,12 +633,12 @@ body {
     .event-name {
         font-size: clamp(16px, 4vw, 30px);
         font-weight: 700;
-        line-height: 1.5rem;
+        line-height: 1rem;
     }
 
     .event-date {
-        margin-top: 3px;
-        font-size: clamp(5px, 3vw, 16px);
+        margin-top: 8px;
+        font-size: clamp(5px, 2vw, 16px);
     }
 
     .ticket-user {
@@ -644,7 +648,7 @@ body {
     .user-avatar {
         width: 50px;
         height: 50px;
-        border-radius: 0.5rem;
+        border-radius: 0.4rem;
     }
 
     .user-details {

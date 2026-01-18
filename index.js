@@ -21,8 +21,9 @@ const ticketEmail = document.querySelector('.user-email');
 const ticketGithub = document.querySelector('.github-username');
 
 // Attribution 
-const attributes = document.querySelector('attribution');
+const attributes = document.querySelector('.attribution');
 
+const ticketDateDisplay = document.querySelector('.event-date');
 
 
 
@@ -37,6 +38,30 @@ form.addEventListener('submit', (event) => {
     // If valid, generate the ticket
     showTicket();
 });
+
+
+
+function updateTicketDate() {
+    const now = new Date();
+
+    // Format: Jan 18, 2026
+    const options = { month: 'short', day: 'numeric', year: 'numeric' };
+    const dateString = now.toLocaleDateString('en-US', options);
+
+    // Format: 04:30 PM
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+    // Update the text on the ticket
+    if (ticketDateDisplay) {
+        ticketDateDisplay.textContent = `${dateString} / ${timeString} / Austin, TX`;
+    }
+}
+
+// Start the clock as soon as the script loads
+setInterval(updateTicketDate, 1000);
+updateTicketDate();
+
+
 
 
 //   FORM VALIDATION (
@@ -88,11 +113,6 @@ function validateForm() {
         isValid = false;
     }
 
-    if (file.files.length === 0) {
-        err.style.display = 'block'; // Show error if no file
-        isValid = false;
-    }
-
     // Return final validation result
     return isValid;
 }
@@ -120,16 +140,35 @@ file.addEventListener('change', (e) => {
         document.querySelector('.user-avatar').src = imageUrl;
 
     };
+
+
 });
+
+
 
 
 //    SHOW GENERATED TICKET
 
 function showTicket() {
+
+
+    // // Capture the current moment
+    // const issueDate = new Date().toLocaleString('en-US', {
+    //     month: 'short',
+    //     day: 'numeric',
+    //     year: 'numeric',
+    //     hour: '2-digit',
+    //     minute: '2-digit'
+    // });
+
+    // ticketDateDisplay.textContent = `${issueDate} / Austin, TX`;
+
+
+
     // Copy form values into ticket
     ticketName.textContent = input.value;
-    ticketEmail.textContent = `@${email.value}`;
-    ticketGithub.textContent = `@${username.value}`;
+    ticketEmail.textContent = `${email.value}`;
+    ticketGithub.textContent = `${username.value}`;
 
     // Hide form and show ticket
     ticket.classList.add('hidden');
