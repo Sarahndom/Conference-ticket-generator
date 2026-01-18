@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
--Solution on Frontend Mentor:[]
+-Solution on Frontend Mentor:[https://www.frontendmentor.io/solutions/conference-ticket-generator-_VPApWtFrQ]
 
 - Solution URL: [https://github.com/Sarahndom/Conference-ticket-generator]
 - Live Site URL: [https://ticket-gene.netlify.app/]
