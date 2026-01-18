@@ -73,8 +73,21 @@ body {
     justify-content: center;
 }
 
+
+.attribution {
+    position: absolute;
+    bottom: 0;
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+
 .ticket-form-content-wrap {
-    /* display: none; */
     width: 50%;
     height: 100%;
 }
@@ -164,6 +177,9 @@ body {
 
     /* Ensures the hand cursor shows even on the invisible element */
     cursor: pointer;
+
+    /* Ensure it is on top of the text and icons */
+    z-index: 10;
 }
 
 .upload-instruction {
@@ -212,19 +228,6 @@ body {
     margin-top: 1.5rem;
 }
 
-.form-input {
-    background-color: hsla(245, 19%, 35%, 0.4);
-    width: 95%;
-    color: hsl(0, 0%, 100%);
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid hsl(245, 19%, 35%);
-}
-
-.form-input:hover {
-    background-color: hsla(245, 19%, 35%, 0.25);
-}
 
 .input-form {
     background-color: hsla(245, 19%, 35%, 0.4);
@@ -240,13 +243,18 @@ body {
     background-color: hsla(245, 19%, 35%, 0.25);
 }
 
+#emailadress {
+    border-color: hsl(7, 71%, 60%);
+}
+
 /* RED BORDER */
-.user-form.submitted .input-form:invalid {
+.form-group-error.show-error .input-form {
     border-color: hsl(7, 71%, 60%);
 }
 
 /* ERROR TEXT */
-.user-form.submitted .input-form:invalid+.error-msg {
+.form-group.show-error .error-msg,
+.form-group-error.show-error .error-msg {
     display: block;
 }
 
@@ -348,7 +356,7 @@ body {
 
 /* TICKET-SECTION */
 
-.ticket-result {
+.hidden {
     display: none;
 
     position: absolute;
@@ -410,8 +418,8 @@ body {
 }
 
 .bg-shadow {
-    border-radius: 30px;
-    width: 80%;
+    border-radius: 1rem;
+    width: 78%;
     position: absolute;
     z-index: -1;
     top: 0;
@@ -420,17 +428,32 @@ body {
     background-color: hsl(248, 70%, 10%);
 }
 
+.bg-shadow-m {
+    width: 50px;
+    height: 85%;
+
+    position: absolute;
+    right: 5rem;
+    bottom: 20px;
+
+    z-index: -1;
+
+    background: radial-gradient(circle at center,
+            hsl(250, 60%, 20%) 0%,
+            hsl(248, 70%, 10%) 100%);
+}
+
 .bg-shadow-1 {
     position: absolute;
     display: flex;
 
-    width: 20%;
+    width: 16%;
     right: 0;
     top: 0;
     bottom: 0;
     z-index: -1;
 
-    border-radius: 30px 10px 10px 30px;
+    border-radius: 1rem;
     background: radial-gradient(circle at center,
             hsl(250, 60%, 20%) 0%,
             hsl(248, 70%, 10%) 100%);
@@ -522,6 +545,8 @@ body {
 
 
 
+
+
 /* Size in em 	Size in px	Device Target */
 /* 23.4375em (which is 375px / 16px) */
 /* 48em	768px	Tablets (Portrait) */
@@ -577,6 +602,11 @@ body {
 
     .ticket-bg {
         border-radius: 5px;
+    }
+
+    .bg-shadow-m {
+        bottom: 15px;
+        right: clamp(20px, 15%, 100px);
     }
 
     .ticket-content {

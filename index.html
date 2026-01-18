@@ -16,16 +16,7 @@
 
   <title>Conference ticket generator</title>
 
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
 </head>
 
 <body>
@@ -91,7 +82,7 @@
             <div class="form-group">
               <label for="fname" class="form-label">Full Name
               </label><br>
-              <input type="text" id="fname" class="form-input" /><br>
+              <input type="text" id="fname" class="input-form" autocomplete="name" /><br>
             </div>
 
 
@@ -99,7 +90,7 @@
             <div class="form-group-error">
               <label for="emailaddress" class="form-label">Email Address
               </label><br>
-              <input type="email" id="emailaddress" class="input-form" placeholder="example@email.com" required /><br>
+              <input type="email" id="emailaddress" class="input-form" placeholder="example@email.com" /><br>
 
               <p class="error-msg">
                 <img src="./assets/images/icon-info.svg" class="err-img" alt="">
@@ -112,7 +103,8 @@
 
             <div class="form-group">
               <label for="Username" class="form-label">GitHub Username</label><br>
-              <input type="text" id="username" class="form-input" placeholder="@yourusername" required /><br>
+              <input type="text" id="username" class="input-form" placeholder="@yourusername"
+                autocomplete="username" /><br>
             </div>
 
             <button type="submit" class="submit-btn">Generate My Ticket</button>
@@ -121,6 +113,11 @@
 
         </div>
 
+      </div>
+
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+        Coded by <a href="#">Sarah Ndom</a>.
       </div>
 
     </section>
@@ -132,7 +129,7 @@
 
     <!-- Generated tickets starts -->
 
-    <section class="ticket-result hidden">
+    <section class="ticket-result hidden" tabindex="-1">
 
       <h1 class="result-title">
         Congrats, <span class="user-name">Full Name ! </span> Your ticket is ready.
@@ -153,6 +150,7 @@
           <img src="/assets/images/pattern-ticket.svg" alt="" class="ticket-bg" />
 
           <div class="bg-shadow"></div>
+          <div class="bg-shadow-m"></div>
           <div class="bg-shadow-1"> <span class="id">#01609</span></div>
 
         </div>
@@ -186,7 +184,7 @@
 
               <div class="user-github">
                 <img src="/assets/images/icon-github.svg" alt="" class="github-icon" />
-                <span class="github-username">@StarG</span>
+                <span class="github-username">StarG</span>
               </div>
             </div>
 
@@ -197,14 +195,11 @@
       </div>
 
 
+
     </section>
 
     <!-- Generated tickets ends -->
 
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Sarah Ndom</a>.
-    </div>
 
   </main>
 
